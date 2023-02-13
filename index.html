@@ -9,7 +9,11 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
-    <title>Librería con Bulma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>AhorrADAs</title>
   </head>
   <body>
     <header>
@@ -21,8 +25,7 @@
             class="navbar-burger"
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
+            data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -48,5 +51,85 @@
         </div>
       </nav>
     </header>
+    
+    <section id="balanceHome">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <!-- Balance -->
+            <div class="box">
+              <h2 class="is-size-3 mb-4">Balance</h2>
+              <div class="columns">
+                <div class="column"></div>
+                <div id="ganancias" class="column has-text-success"></div>
+              </div>
+              <div class="box">
+                <div class="columns"></div>
+                <div class="column">
+                  <h2 class="is-size-3 mb-4">Filtros</h2>
+                </div>
+                <div class="column has-text-right">
+                  <a href="#" id="toggleFilter">Ocultar Filtros</a>
+                </div>
+                <div id="filtros">
+                  <div>
+                    <label class="label" for="filtro-tipo">Tipo</label>
+                    <div class="control">
+                      <div class="select is-fullwidth">
+                        <select id="filtro-tipo">
+                          <option value="todos">Todos</option>
+                          <option value="gasto">Gastos</option>
+                          <option value="ganancia">Ganancias</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="label" for="filtro-categoria">Categorías</label>
+                    <div class="control">
+                      <div class="select is-fullwidth">
+                        <select id="filtro-categoria">
+                          <option value="">Comida</option>
+                          <option value="">Educación</option>
+                          <option value="">Salidas</option>
+                          <option value="">Servicios</option>
+                          <option value="">Trabajo</option>
+                          <option value="">Transporte</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="label" for="filtro-fecha">Desde</label>
+                    <div class="control">
+                      <input type="date" id="filtro-fecha" class="input">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="label" for="filtro-orden">Ordenar Por</label>
+                    <div class="control">
+                      <div class="select">
+                        <select id="filtro-orden">
+                          <option value="mas_reciente">Más Reciente</option>
+                          <option value="menos_reciente">Menos Reciente</option>
+                          <option value="mayor_monto">Mayor Monto</option>
+                          <option value="menor_monto">Menor Monto</option>
+                          <option value="A/Z">A/Z</option>
+                          <option value="Z/A">Z/A</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </section>
+
   </body>
+  <script src="main.js" ></script>
 </html>
