@@ -52,43 +52,52 @@
       </nav>
     </header>
     
-    <section id="balanceHome">
+    <section class="section mt-5 vista" id="balanceHome">
       <div class="container">
         <div class="columns">
-          <div class="column">
+          <div class="column is-3-widescreen is-4-desktop is-12-tablet is-offset-1-widescreen">
             <!-- Balance -->
             <div class="box">
               <h2 class="is-size-3 mb-4">Balance</h2>
+              <div class="columns">  
+                <div class="column is-size-5">Ganancias</div>
+                <div class="column has-text-success has-text-right" id="ganancias">+$0</div>
+              </div>
               <div class="columns">
-                <div class="column"></div>
-                <div id="ganancias" class="column has-text-success"></div>
+                <div class="column is-size-5">Gastos</div>
+                <div class="column has-text-right has-text-danger" id="gastos">-$0</div>
+              </div>
+              <div class="columns">
+                <div class="column is-size-4">Total</div>
+                <div class="column has-text-right has-text-weight-bold" id="balance">$0</div>
               </div>
               <div class="box">
-                <div class="columns"></div>
-                <div class="column">
-                  <h2 class="is-size-3 mb-4">Filtros</h2>
+                <div class="columns is-mobile is-vcentered">
+                    <div class="column">
+                      <h2 class="is-size-4 has-text-weight-bold mb-4">Filtros</h2>
+                    </div>
+                  <div class="column has-text-right">
+                    <a href="#" id="toggle-filter">Ocultar Filtros</a>
+                  </div>
                 </div>
-                <div class="column has-text-right">
-                  <a href="#" id="toggleFilter">Ocultar Filtros</a>
-                </div>
-                <div id="filtros">
+                <div id="filters">
                   <div>
-                    <label class="label" for="filtro-tipo">Tipo</label>
+                    <label class="label" for="filter-type">Tipo</label>
                     <div class="control">
                       <div class="select is-fullwidth">
-                        <select id="filtro-tipo">
-                          <option value="todos">Todos</option>
-                          <option value="gasto">Gastos</option>
-                          <option value="ganancia">Ganancias</option>
+                        <select id="filter-type">
+                          <option value="all">Todos</option>
+                          <option value="bills">Gastos</option>
+                          <option value="profits">Ganancias</option>
                         </select>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <label class="label" for="filtro-categoria">Categorías</label>
+                    <label class="label" for="filter-category">Categorías</label>
                     <div class="control">
                       <div class="select is-fullwidth">
-                        <select id="filtro-categoria">
+                        <select id="filter-category">
                           <option value="">Comida</option>
                           <option value="">Educación</option>
                           <option value="">Salidas</option>
@@ -100,20 +109,21 @@
                     </div>
                   </div>
                   <div>
-                    <label class="label" for="filtro-fecha">Desde</label>
+                    <label class="label" for="filter-date">Desde</label>
                     <div class="control">
-                      <input type="date" id="filtro-fecha" class="input">
+                      <input type="date" id="filter-date" class="input">
                     </div>
                   </div>
                   <div>
-                    <label class="label" for="filtro-orden">Ordenar Por</label>
+                    <label class="label" for="filter-order">Ordenar Por</label>
                     <div class="control">
                       <div class="select">
-                        <select id="filtro-orden">
-                          <option value="mas_reciente">Más Reciente</option>
-                          <option value="menos_reciente">Menos Reciente</option>
-                          <option value="mayor_monto">Mayor Monto</option>
-                          <option value="menor_monto">Menor Monto</option>
+                        <select id="filter-order">
+                          <option value="" disabled selected></option>
+                          <option value="more-recently">Más Reciente</option>
+                          <option value="less-recently">Menos Reciente</option>
+                          <option value="greater-amount">Mayor Monto</option>
+                          <option value="lower-amount">Menor Monto</option>
                           <option value="A/Z">A/Z</option>
                           <option value="Z/A">Z/A</option>
                         </select>
@@ -126,7 +136,10 @@
           </div>
         </div>
       </div>
-      
+      <div>
+        <div class="column"></div>
+        <div class="columns"></div>
+      </div>
       
     </section>
 
