@@ -19,7 +19,7 @@
     <header>
       <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-item">
-          <button class="button is-large is-primary is-size-2 2.5rem"><i class="fas fa-wallet mr-2" aria-hidden="true"></i>AhorrADAs</button></div>
+          <button class="button is-large is-primary is-size-2 2.5rem title is-2"><i class="fas fa-wallet mr-2" aria-hidden="true"></i>AhorrADAs</button></div>
           <a
             role="button"
             class="navbar-burger"
@@ -52,78 +52,82 @@
       </nav>
     </header>
     
-    <section class="section mt-5 vista" id="balanceHome">
+    <section class="columns is-mobile section mt-5 vista" id="balanceHome">
       <div class="container">
         <div class="columns">
           <div class="column is-3-widescreen is-4-desktop is-12-tablet is-offset-1-widescreen">
             <!-- Balance -->
             <div class="box">
               <h2 class="is-size-3 mb-4">Balance</h2>
-              <div class="columns">  
-                <div class="column is-size-5">Ganancias</div>
-                <div class="column has-text-success has-text-right" id="ganancias">+$0</div>
-              </div>
-              <div class="columns">
-                <div class="column is-size-5">Gastos</div>
-                <div class="column has-text-right has-text-danger" id="gastos">-$0</div>
-              </div>
-              <div class="columns">
-                <div class="column is-size-4">Total</div>
-                <div class="column has-text-right has-text-weight-bold" id="balance">$0</div>
+              <div class="column">
+                <div class="columns">
+                  <div class="column is-size-5">Ganancias</div>
+                  <div id="gainings" class="column has-text-success has-text-right">+$</div>
+                </div>
+                <div class="columns">
+                  <div class="column is-size-5">Gastos</div>
+                  <div id="expenses" class="column has-text-right has-text-danger">-$</div>
+                </div>  
+                <div class="columns">
+                  <div class="column is-size-5">Total</div>
+                  <div id="total" class="column has-text-weight-bold has-text-right">$</div>
+                </div>
               </div>
               <div class="box">
-                <div class="columns is-mobile is-vcentered">
-                    <div class="column">
-                      <h2 class="is-size-4 has-text-weight-bold mb-4">Filtros</h2>
-                    </div>
-                  <div class="column has-text-right">
-                    <a href="#" id="toggle-filter">Ocultar Filtros</a>
+                <div class="columns">
+                  <div class="column">
+                    <h2 class="is-size-4 has-text-weight-bold mb-4">Filtros</h2>
                   </div>
+                  <div class="column has-text-right">
+                    <a href="#" id="toggleFilter">Ocultar Filtros</a>
+                  </div>  
                 </div>
-                <div id="filters">
+                <!-- filter -->
+                <div id="filter">
                   <div>
-                    <label class="label" for="filter-type">Tipo</label>
+                    <label class="label" for="filtro-tipo">Tipo</label>
                     <div class="control">
                       <div class="select is-fullwidth">
-                        <select id="filter-type">
-                          <option value="all">Todos</option>
-                          <option value="bills">Gastos</option>
-                          <option value="profits">Ganancias</option>
+                        <select id="filtro-tipo">
+                          <option value="todos">Todos</option>
+                          <option value="gasto">Gastos</option>
+                          <option value="ganancia">Ganancias</option>
                         </select>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <label class="label" for="filter-category">Categorías</label>
+                    <label class="label" for="filtro-categoria">Categorías</label>
                     <div class="control">
                       <div class="select is-fullwidth">
-                        <select id="filter-category">
-                          <option value="">Comida</option>
+                        <select id="filtro-category">
+                          <option value="" disabled selected></option>
+		                      <option value="">Comida</option>
                           <option value="">Educación</option>
                           <option value="">Salidas</option>
                           <option value="">Servicios</option>
                           <option value="">Trabajo</option>
                           <option value="">Transporte</option>
-                        </select>
+			                  </select>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <label class="label" for="filter-date">Desde</label>
+                    <label class="label" for="filtro-fecha">Desde</label>
                     <div class="control">
-                      <input type="date" id="filter-date" class="input">
+                      <input type="date" id="filtro-fecha" class="input">
                     </div>
                   </div>
                   <div>
-                    <label class="label" for="filter-order">Ordenar Por</label>
+                    <label class="label" for="filtro-orden">Ordenar Por</label>
                     <div class="control">
                       <div class="select">
-                        <select id="filter-order">
-                          <option value="" disabled selected></option>
-                          <option value="more-recently">Más Reciente</option>
-                          <option value="less-recently">Menos Reciente</option>
-                          <option value="greater-amount">Mayor Monto</option>
-                          <option value="lower-amount">Menor Monto</option>
+                        <select id="filtro-orden">
+		                      <option value="" disabled selected></option>
+                          <option value="mas_reciente">Más Reciente</option>
+                          <option value="menos_reciente">Menos Reciente</option>
+                          <option value="mayor_monto">Mayor Monto</option>
+                          <option value="menor_monto">Menor Monto</option>
                           <option value="A/Z">A/Z</option>
                           <option value="Z/A">Z/A</option>
                         </select>
@@ -135,14 +139,94 @@
             </div>
           </div>
         </div>
+      </div> 
+      <div class="column is-centered is-3-widescreen">
+        <div class="box">
+          <div class="columns">
+            <div class="column">
+              <h3 class="is-size-4 has-text-weight-bold">Operaciones</h3>
+            </div>
+            <div class="column has-text-right-tablet">
+              <button type="button" class="button is-primary" id="ver-operacion">
+                + Nueva operación
+              </button>
+            </div>  
+          </div>
+          <div id="con-operaciones" class="is-hidden">
+            <div class="columns has-text-weight-semibold is-hidden-mobile">
+              <div class="column is-3">Descripción</div>
+              <div class="column is-3">Categoría</div>
+              <div class="column is-2 has-text-right">Fecha</div>
+              <div class="column is-2 has-text-right">Monto</div>
+              <div class="column is-2 has-text-right">Acciones</div>
+            </div>
+            <div id="operaciones">
+              <div class="mb-3">
+                <div class="columns is-multiline is-mobile is-vcentered">
+                  <div class="column is-3-tablet is-6-mobile">
+                    <h3 class="has-text-weight-semibold">parrila</h3>
+                  </div>
+                <div class="column is-3-tablet is-6-mobile has-text-right-mobile">
+                  <span class="tag is-primary is-light">Comida</span>
+                </div>
+                <div class="column is-2-tablet has-text-grey is-hidden-mobile has-text-right-tablet"> 11/2/2023 </div>
+                <div class="column is-2-tablet is-6-mobile has-text-weight-bold has-text-right-tablet is-size-4-mobile has-text-danger"> -$5600 </div>    
+                <div class="column is-2-tablet is-6-mobile has-text-right">
+                  <p class="is-fullwidth">
+                    <a href="#" class="mr-3 is-size-7 edit-link">Editar</a>
+                    <a href="#" class="is-size-7 delete-link">Eliminar</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+              <div class="mb-3">
+                <div class="columns is-multiline is-mobile is-vcentered">
+                    <div class="column is-3-tablet is-6-mobile">
+                      <h3 class="has-text-weight-semibold">Venta</h3>
+                    </div>
+                  <div class="column is-3-tablet is-6-mobile has-text-right-mobile">
+                    <span class="tag is-primary is-light">Servicios</span>
+                  </div>
+                  <div class="column is-2-tablet has-text-grey is-hidden-mobile has-text-right-tablet"> 11/2/2023 </div>  
+                  <div class="column is-2-tablet is-6-mobile has-text-weight-bold has-text-right-tablet is-size-4-mobile has-text-success"> +$8000 </div>
+                  <div class="column is-2-tablet is-6-mobile has-text-right">
+                    <p class="is-fullwidth">
+                      <a href="#" class="mr-3 is-size-7 edit-link">Editar</a>
+                      <a href="#" class="is-size-7 delete-link">Eliminar</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="columns is-multiline is-mobile is-vcentered">
+                  <div class="column is-3-tablet is-6-mobile">
+                    <h3 class="has-text-weight-semibold">Aguinaldo</h3>
+                  </div>
+                <div class="column is-3-tablet is-6-mobile has-text-right-mobile">
+                  <span class="tag is-primary is-light">Servicios</span>
+                </div>
+                <div class="column is-2-tablet has-text-grey is-hidden-mobile has-text-right-tablet"> 19/02/2023 </div>  
+                <div class="column is-2-tablet is-6-mobile has-text-weight-bold has-text-right-tablet is-size-4-mobile has-text-success"> +$250000 </div>
+                <div class="column is-2-tablet is-6-mobile has-text-right">
+                  <p class="is-fullwidth">
+                    <a href="#" class="mr-3 is-size-7 edit-link">Editar</a>
+                    <a href="#" class="is-size-7 delete-link">Eliminar</a>
+                  </p>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+        <div class="my-6 py-6" id="sin-operaciones">
+          <figure class="image">
+            <img src="./Images/wallet.svg" class="" alt="">
+          </figure>
+          <h4 class="is-size-4 has-text-centered mt-6 mb-4 has-text-weight-semibold"> Sin resultados </h4>
+          <p class="has-text-centered">Cambia los filtros o agrega operaciones </p>
+        </div>  
       </div>
-      <div>
-        <div class="column"></div>
-        <div class="columns"></div>
-      </div>
-      
+    </div>
     </section>
-
   </body>
   <script src="main.js" ></script>
 </html>
