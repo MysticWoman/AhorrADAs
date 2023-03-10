@@ -17,19 +17,9 @@
   </head>
   <body>
     <header>
-      <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+      <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-item">
           <button class="button is-large is-primary is-size-2 2.5rem title is-2"><i class="fas fa-wallet mr-2" aria-hidden="true"></i>AhorrADAs</button></div>
-          <a
-            role="button"
-            class="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
         </div>
           <div class="navbar-end">
             <div class="navbar-item">
@@ -55,7 +45,7 @@
     <section class="columns is-mobile section mt-5 vista" id="balanceHome">
       <div class="container">
         <div class="columns">
-          <div class="column is-3-widescreen is-4-desktop is-12-tablet is-offset-1-widescreen">
+          <div class="column is-6-widescreen is-4-desktop is-12-tablet is-offset-1-widescreen">
             <!-- Balance -->
             <div class="box">
               <h2 class="is-size-3 mb-4">Balance</h2>
@@ -140,83 +130,22 @@
           </div>
         </div>
       </div> 
-      <div class="column is-centered is-3-widescreen">
+    </div>
+    <!-- operaciones -->
+      <div class="column is-centered is-3-widescreen is-half">
         <div class="box">
           <div class="columns">
             <div class="column">
               <h3 class="is-size-4 has-text-weight-bold">Operaciones</h3>
             </div>
+
             <div class="column has-text-right-tablet">
-              <button type="button" class="button is-primary" id="ver-operacion">
+              <button type="button" class="button is-primary" id="viewOperation">
                 + Nueva operación
               </button>
             </div>  
           </div>
-          <div id="con-operaciones" class="is-hidden">
-            <div class="columns has-text-weight-semibold is-hidden-mobile">
-              <div class="column is-3">Descripción</div>
-              <div class="column is-3">Categoría</div>
-              <div class="column is-2 has-text-right">Fecha</div>
-              <div class="column is-2 has-text-right">Monto</div>
-              <div class="column is-2 has-text-right">Acciones</div>
-            </div>
-            <div id="operaciones">
-              <div class="mb-3">
-                <div class="columns is-multiline is-mobile is-vcentered">
-                  <div class="column is-3-tablet is-6-mobile">
-                    <h3 class="has-text-weight-semibold">parrila</h3>
-                  </div>
-                <div class="column is-3-tablet is-6-mobile has-text-right-mobile">
-                  <span class="tag is-primary is-light">Comida</span>
-                </div>
-                <div class="column is-2-tablet has-text-grey is-hidden-mobile has-text-right-tablet"> 11/2/2023 </div>
-                <div class="column is-2-tablet is-6-mobile has-text-weight-bold has-text-right-tablet is-size-4-mobile has-text-danger"> -$5600 </div>    
-                <div class="column is-2-tablet is-6-mobile has-text-right">
-                  <p class="is-fullwidth">
-                    <a href="#" class="mr-3 is-size-7 edit-link">Editar</a>
-                    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <div class="mb-3">
-                <div class="columns is-multiline is-mobile is-vcentered">
-                    <div class="column is-3-tablet is-6-mobile">
-                      <h3 class="has-text-weight-semibold">Venta</h3>
-                    </div>
-                  <div class="column is-3-tablet is-6-mobile has-text-right-mobile">
-                    <span class="tag is-primary is-light">Servicios</span>
-                  </div>
-                  <div class="column is-2-tablet has-text-grey is-hidden-mobile has-text-right-tablet"> 11/2/2023 </div>  
-                  <div class="column is-2-tablet is-6-mobile has-text-weight-bold has-text-right-tablet is-size-4-mobile has-text-success"> +$8000 </div>
-                  <div class="column is-2-tablet is-6-mobile has-text-right">
-                    <p class="is-fullwidth">
-                      <a href="#" class="mr-3 is-size-7 edit-link">Editar</a>
-                      <a href="#" class="is-size-7 delete-link">Eliminar</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <div class="columns is-multiline is-mobile is-vcentered">
-                  <div class="column is-3-tablet is-6-mobile">
-                    <h3 class="has-text-weight-semibold">Aguinaldo</h3>
-                  </div>
-                <div class="column is-3-tablet is-6-mobile has-text-right-mobile">
-                  <span class="tag is-primary is-light">Servicios</span>
-                </div>
-                <div class="column is-2-tablet has-text-grey is-hidden-mobile has-text-right-tablet"> 19/02/2023 </div>  
-                <div class="column is-2-tablet is-6-mobile has-text-weight-bold has-text-right-tablet is-size-4-mobile has-text-success"> +$250000 </div>
-                <div class="column is-2-tablet is-6-mobile has-text-right">
-                  <p class="is-fullwidth">
-                    <a href="#" class="mr-3 is-size-7 edit-link">Editar</a>
-                    <a href="#" class="is-size-7 delete-link">Eliminar</a>
-                  </p>
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>          
+
         <div class="my-6 py-6" id="sin-operaciones">
           <figure class="image">
             <img src="./Images/wallet.svg" class="" alt="">
@@ -227,6 +156,20 @@
       </div>
     </div>
     </section>
+
+    <section class="section vista has-background-light is-hidden" id="sectionNewOperation">
+      <div class="column">
+        <div class="box">
+          <h2>Nueva Operacion</h2>
+          <form id="formNewOperation">
+            <input type="text">
+            <button type="button" class="button is-danger" id="viewHome">Cancelar</button>
+            <button type="button" class="button is-success" id="viewHomeAcept">Aceptar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </body>
   <script src="main.js" ></script>
 </html>
