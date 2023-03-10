@@ -10,13 +10,6 @@ let categorias = ["Comida", "Educación", "Salidas", "Servicios", "Trabajo", "Tr
 
 categorias.forEach((categoria) => document.querySelector("#filtro-category").innerHTML += `<option value="">${categoria}</option>`)
 
-<<<<<<< HEAD
-
-// ------------------Nueva operacion------------------------
-
-
-
-=======
 document.querySelector("#gainings").innerHTML += `<span>${totalGanancias}</span>` 
 document.querySelector("#expenses").innerHTML += `<span>${totalGastos}</span>` 
 document.querySelector("#total").innerHTML += `<span>${totalGanancias - totalGastos}</span>`
@@ -49,4 +42,3 @@ $btnViewHomeAcept.addEventListener("click", () => {
 const $sectionNewOperation = document.querySelector("#sectionNewOperation")     
 const $inputDate = document.querySelector("#inputDate")     
 const $containDate = document.querySelector(".contain-date")
->>>>>>> 5d64a93ae4e2254b5442349804d55d38c67e14f9

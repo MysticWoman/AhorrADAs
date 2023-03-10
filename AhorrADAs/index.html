@@ -145,18 +145,7 @@
               </button>
             </div>  
           </div>
-<<<<<<< HEAD
-          <div id="con-operaciones" class="is-hidden">
-            <div class="columns has-text-weight-semibold is-hidden-mobile">
-              <div class="column is-3">Descripción</div>
-              <div class="column is-3">Categoría</div>
-              <div class="column is-2 has-text-right">Fecha</div>
-              <div class="column is-2 has-text-right">Monto</div>
-              <div class="column is-2 has-text-right">Acciones</div>
-            </div>          
-=======
 
->>>>>>> 5d64a93ae4e2254b5442349804d55d38c67e14f9
         <div class="my-6 py-6" id="sin-operaciones">
           <figure class="image">
             <img src="./Images/wallet.svg" class="" alt="">
@@ -173,7 +162,28 @@
         <div class="box">
           <h2>Nueva Operacion</h2>
           <form id="formNewOperation">
-            <input type="text">
+            <div class="column">
+              <label for="descripcion">Descripción</label>
+              <input id="descripcion" type="text" placeholder="" >
+
+              <label for="monto">Monto</label>
+              <input id="monto" type="text">
+              
+                <div class="label" for="tipo-select">
+                  <select id="tipo-operacion">
+                    <label for="tipo">Tipo</label>
+                    <input id="tipo" type="text">
+                  </select>
+                </div>  
+                
+              <select id="tipoDeCategoria">
+                <label for="categoria">Categoria</label>
+                <input id="categoria" type="text">
+              </select>
+
+              <label for="fecha">Fecha</label>
+              <input id="fecha" type="text">
+            </div>
             <button type="button" class="button is-danger" id="viewHome">Cancelar</button>
             <button type="button" class="button is-success" id="viewHomeAcept">Aceptar</button>
           </form>
