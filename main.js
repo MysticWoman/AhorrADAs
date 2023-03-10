@@ -14,6 +14,8 @@ document.querySelector("#total").innerHTML += `<span>${totalGanancias - totalGas
 
 categorias.forEach((categoria) => document.querySelector("#filtro-category").innerHTML += `<option value="">${categoria}</option>`)
 
+
 // ------------------Nueva operacion------------------------
 
-const nuevaOperacion = []
+
+
