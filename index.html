@@ -1,70 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css"/>
     <title>AhorrADAs</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <nav>
+      <nav>
+        <div>
+          <button><i></i>AhorrADAs</button>
+        </div>
+        <div>
+          <div>
             <div>
-                <button>
-                    <i></i>AhorrADAs
-                </button>
+              <a> <i></i> Balance </a>
+              <a id="viewCategories"> <i></i> Categories </a>
+              <a id="viewReports"> <i></i> Reports </a>
             </div>
-            <div>
-                <div>
-                    <div class="buttons">
-                        <a class="button">
-                            <i></i> Balance
-                        </a>
-                        <a class="button" id="viewCategories">
-                            <i></i> Categories
-                        </a>
-                        <a class="button" id="viewReports">
-                            <i></i> Reports
-                        </a>
-                    </div>
-                </div>
-            </div>    
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
     <section id="balanceHome">
-        <div class="container">
-            <div class="columns">
-                <div
-                    class="columnn">
-                    <!-- Balance -->
-                    <div class="box">
-                        <h2>
-                            Balance
-                        </h2>
-                        <div class="column">
-                        <div class="columns">
-                            <div class="column">Gainings</div>
-                            <div id="gainings"
-                            class="column">+$
-                    </div>
+      <div>
+        <div>
+          <div>
+            <!-- Balance -->
+            <div>
+              <h2>Balance</h2>
+              <div>
+                <div>
+                  <div>Gainings</div>
+                  <div id="gainings">+$</div>
                 </div>
-                <div class="columns">
-                  <div class="column">Expenses</div>
-                  <div
-                    id="expenses"
-                    class="column">-$
+                <div>
+                  <div>Expenses</div>
+                  <div id="expenses">-$</div>
+                </div>
+                <div>
+                  <div>Total</div>
+                  <div id="total">$</div>
+                </div>
+              </div>
+            </div>
+            <!-- filter -->
+            <div>
+              <div>
+                <div>
+                  <h3>Filters</h3>
+                </div>
+                <div>
+                  <a href="#" id="toggle-filtros">Hide Filters</a>
+                </div>
+              </div>
+
+              <div id="filter">
+                <div>
+                  <labe for="filtro-tipo">Type</label>
+                  <div>
+                    <div>
+                      <select id="filtro-tipo">
+                        <option value="todos">All</option>
+                        <option value="gasto">Expenses</option>
+                        <option value="ganancia">Gainings</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-                <div class="columns">
-                  <div class="column">Total</div>
-                  <div
-                    id="total"
-                    class="column">$
+                <div>
+                  <label for="filtro-categoria">Categories</label>
+                  <div>
+                    <div>
+                      <select id="filtro-category">
+                        <option value="" disabled selected></option>
+                        <option value="">Food</option>
+                        <option value="">Education</option>
+                        <option value="">Outings</option>
+                        <option value="">Services</option>
+                        <option value="">Jobs</option>
+                        <option value="">Transport</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="filtro-fecha">From</label>
+                  <div>
+                    <input type="date" id="filtro-fecha"/>
+                  </div>
+                </div>
+                <div>
+                  <label for="filtro-orden">Order By</label>
+                  <div>
+                    <div>
+                      <select id="filtro-orden">
+                        <option value="" disabled selected></option>
+                        <option value="mas_reciente">More Recent</option>
+                        <option value="menos_reciente">Less Recent</option>
+                        <option value="mayor_monto">Greater Amount</option>
+                        <option value="menor_monto">Lower Amount</option>
+                        <option value="A/Z">A/Z</option>
+                        <option value="Z/A">Z/A</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <!-- operaciones -->
+          <div>
+            <div>
+              <div>
+                <div>
+                  <h3>Operations</h3>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    id="viewOperation">
+                    + New Operation
+                  </button>
+                </div>
+              </div>
+              <div id="sin-operaciones">
+                <figure>
+                  <img src="./Images/wallet.svg" alt=""/>
+                </figure>
+                <h4>
+                  Without Results
+                </h4>
+                <p>
+                  Change filters or add operations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section-reportes">
+      <div>
+        <div>
+          <div>
+            <div">
+              <h2>
+                Reports
+              </h2>
+              <div id="sin-reportes">
+                <div>
+                  <figure>
+                    <img src="./Images/chart (2).svg" alt="image-reportes" />
+                  </figure>
+                  <h4>
+                    Insufficient Operations
+                  </h4>
+                  <p>
+                    Try adding more operations
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="sectionNewCategories">
+      <div>
+        <div>
+          <div>
+            <div>
+              <form id="formNewCategories">
+                <h2>Categories</h2>
+                <label for="categoria-input">Name</label>
+                <div>
+                  <div>
+                    <input type="text" id="categoria-input" />
+                  </div>
+                  <div>
+                    <button id="addCategoryButton">
+                      Add
+                    </button>
+                  </div>
+                </div>
+                <div id="categorias">
+                  <div>
+                    <div>
+                      <div>
+                        <span>Food</span>
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          id="edit-categories"
+                          >Edit</a>
+                        <a
+                          href="#"
+                          id="delete-categories"
+                          >Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <div>
+                        <span>Education</span>
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          id="edit-categories"
+                          >Edit</a>
+                        <a
+                          href="#"
+                          id="delete-categories"
+                          >Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <div>
+                        <span">Job</span>
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          id="edit-categories"
+                          >Edit</a>
+                        <a
+                          href="#"
+                          id="delete-categories"
+                          >Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <div>
+                        <span>Transport</span>
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          id="edit-categories"
+                          >Edit</a>
+                        <a
+                          href="#"
+                          id="delete-categories"
+                          >Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <div>
+                        <span>Outings</span>
+                      </div>
+                      <div>
+                        <a
+                          href="#"
+                          id="edit-categories"
+                          >Edit</a>
+                        <a
+                          href="#"
+                          id="delete-categories"
+                          >Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="sectionEditCategories">
+      <div>
+        <div>
+          <div>
+            <div>
+              <h2>
+                Edit Categorie
+              </h2>
+              <label for="editar-categoria-input"
+                >Name</label>
+              <div>
+                <div>
+                  <input
+                    type="text"
+                    name
+                    id="editar-categoria-input"
+                  />
+                </div>
+              </div>
+              <div>
+                <button id="cancelar-categoria-boton">
+                  Cancel
+                </button>
+                <button id="editar-categoria-boton">
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="sectionNewOperation">
+      <div>
+        <div>
+          <div>
+            <div>
+              <h2>
+                New Operation
+              </h2>
 
-</body>
+              <div>
+                <label for="descripcion">Description</label>
+                <input
+                  id="descripcion"
+                  type="text"
+                  placeholder=""/>
+              </div>
+              <label for="monto">Amount</label>
+              <input id="monto" type="number" value="0" />
+              <div>
+                <label for="tipo-select">Type</label>
+                <div>
+                  <div>
+                    <select id="tipo-operacion">
+                      <option value="gasto">Expenses</option>
+                      <option value="ganancia">Gainings</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="categorias-select">Categories</label>
+                <div>
+                  <div>
+                    <select id="tipoDeCategoria">
+                      <option value="" disabled selected></option>
+                      <option value="">Food</option>
+                      <option value="">Education</option>
+                      <option value="">Outings</option>
+                      <option value="">Services</option>
+                      <option value="">Jobs</option>
+                      <option value="">Transport</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="fecha-input">Date</label>
+                <div>
+                  <div>
+                    <input type="date" id="fecha-input" />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button type="button" id="viewHome">
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  id="viewHomeAcept">
+                  Acept
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="main.js"></script>
 </html>
