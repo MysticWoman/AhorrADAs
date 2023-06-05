@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://kit.fontawesome.com/69b80173d5.js" crossorigin="anonymous"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -27,29 +31,25 @@
     </style>
   </head>
   <body>
-  
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
     <div class="lg:content-auto">
       <!-- ... -->
     <header>
-      <nav>
+      <nav class="bg-purple-600">
         <div>
-          <button><i></i>AhorrADAs</button>
+          <button> <i class="fa-solid fa-wallet" style="color: #000000;"></i> Savings</button>
         </div>
         <div>
           <div>
-            <div>
-              <a> <i></i> Balance </a>
-              <a id="viewCategories"> <i></i> Categories </a>
-              <a id="viewReports"> <i></i> Reports </a>
+            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+              <a id="viewBalance"> <i class="fa-solid fa-dumbbell" style="color: #000000;"></i> Balance </a>
+              <a id="viewCategories"> <i class="fa-solid fa-user-tag"></i> Categories </a>
+              <a id="viewReports"> <i class="fa-solid fa-chart-pie" style="color: #000000;"></i>  Reports </a>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <section id="balanceHome">
+    <section class="container mx-auto " id="balanceHome">
       <div>
         <div>
           <div>
@@ -78,55 +78,55 @@
                   <h3>Filters</h3>
                 </div>
                 <div>
-                  <a href="#" id="toggle-filtros">Hide Filters</a>
+                  <a href="#" id="toggle-filters">Hide Filters</a>
                 </div>
               </div>
 
               <div id="filter">
                 <div>
-                  <labe for="filtro-tipo">Type</label>
+                  <labe for="filter-type">Type</label>
                   <div>
                     <div>
-                      <select id="filtro-tipo">
-                        <option value="todos">All</option>
-                        <option value="gasto">Expenses</option>
-                        <option value="ganancia">Gainings</option>
+                      <select id="filter-type">
+                        <option value="all">All</option>
+                        <option value="expenses">Expenses</option>
+                        <option value="gainings">Gainings</option>
                       </select>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <label for="filtro-categoria">Categories</label>
+                  <label for="filter-categories">Categories</label>
                   <div>
                     <div>
-                      <select id="filtro-category">
+                      <select id="filter-categories">
                         <option value="" disabled selected></option>
-                        <option value="">Food</option>
                         <option value="">Education</option>
-                        <option value="">Outings</option>
-                        <option value="">Services</option>
+                        <option value="">Food</option>
                         <option value="">Jobs</option>
+                        <option value="">Outings</option>
                         <option value="">Transport</option>
+                        <option value="">Services</option>
                       </select>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <label for="filtro-fecha">From</label>
+                  <label for="filter-date">From</label>
                   <div>
-                    <input type="date" id="filtro-fecha"/>
+                    <input type="date" id="filter-date"/>
                   </div>
                 </div>
                 <div>
-                  <label for="filtro-orden">Order By</label>
+                  <label for="filter-order">Order By</label>
                   <div>
                     <div>
-                      <select id="filtro-orden">
+                      <select id="filter-order">
                         <option value="" disabled selected></option>
-                        <option value="mas_reciente">More Recent</option>
-                        <option value="menos_reciente">Less Recent</option>
-                        <option value="mayor_monto">Greater Amount</option>
-                        <option value="menor_monto">Lower Amount</option>
+                        <option value="more_recent">More Recent</option>
+                        <option value="less_recent">Less Recent</option>
+                        <option value="greater_amount">Greater Amount</option>
+                        <option value="lower_amount">Lower Amount</option>
                         <option value="A/Z">A/Z</option>
                         <option value="Z/A">Z/A</option>
                       </select>
@@ -151,9 +151,9 @@
                   </button>
                 </div>
               </div>
-              <div id="sin-operaciones">
+              <div id="without-operations">
                 <figure>
-                  <img src="./Images/wallet.svg" alt=""/>
+                  <img src="../Images/wallet.png" alt=""/>
                 </figure>
                 <h4>
                   Without Results
@@ -167,7 +167,7 @@
         </div>
       </div>
     </section>
-    <section id="section-reportes">
+    <section class="container mx-auto" id="report-section">
       <div>
         <div>
           <div>
@@ -175,10 +175,10 @@
               <h2>
                 Reports
               </h2>
-              <div id="sin-reportes">
+              <div id="without-reports">
                 <div>
                   <figure>
-                    <img src="./Images/chart (2).svg" alt="image-reportes" />
+                    <img src="../Images/chart2.svg" alt="image-reports" />
                   </figure>
                   <h4>
                     Insufficient Operations
@@ -193,7 +193,7 @@
         </div>
       </div>
     </section>
-    <section id="sectionNewCategories">
+    <section class="container mx-auto" id="sectionNewCategories">
       <div>
         <div>
           <div>
@@ -203,7 +203,7 @@
                 <label for="categoria-input">Name</label>
                 <div>
                   <div>
-                    <input type="text" id="categoria-input" />
+                    <input type="text" id="input-category"/>
                   </div>
                   <div>
                     <button id="addCategoryButton">
@@ -211,7 +211,7 @@
                     </button>
                   </div>
                 </div>
-                <div id="categorias">
+                <div id="categories">
                   <div>
                     <div>
                       <div>
@@ -305,30 +305,30 @@
         </div>
       </div>
     </section>
-    <section id="sectionEditCategories">
+    <section class="container mx-auto" id="sectionEditCategories">
       <div>
         <div>
           <div>
             <div>
               <h2>
-                Edit Categorie
+                Edit Category
               </h2>
-              <label for="editar-categoria-input"
+              <label for="edit-input-category"
                 >Name</label>
               <div>
                 <div>
                   <input
                     type="text"
                     name
-                    id="editar-categoria-input"
+                    id="edit-input-category"
                   />
                 </div>
               </div>
               <div>
-                <button id="cancelar-categoria-boton">
+                <button id="cancel-button-category">
                   Cancel
                 </button>
-                <button id="editar-categoria-boton">
+                <button id="edit-button-category">
                   Edit
                 </button>
               </div>
@@ -337,7 +337,7 @@
         </div>
       </div>
     </section>
-    <section id="sectionNewOperation">
+    <section class="container mx-auto is-hidden" id="sectionNewOperation">
       <div>
         <div>
           <div>
@@ -347,46 +347,46 @@
               </h2>
 
               <div>
-                <label for="descripcion">Description</label>
+                <label for="description">Description</label>
                 <input
-                  id="descripcion"
+                  id="description"
                   type="text"
                   placeholder=""/>
               </div>
-              <label for="monto">Amount</label>
-              <input id="monto" type="number" value="0" />
+              <label for="amount">Amount</label>
+              <input id="amount" type="number" value="0" />
               <div>
-                <label for="tipo-select">Type</label>
+                <label for="select-type">Type</label>
                 <div>
                   <div>
-                    <select id="tipo-operacion">
-                      <option value="gasto">Expenses</option>
-                      <option value="ganancia">Gainings</option>
+                    <select id="type-operation">
+                      <option value="expenses">Expenses</option>
+                      <option value="gainings">Gainings</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div>
-                <label for="categorias-select">Categories</label>
+                <label for="select-categories">Categories</label>
                 <div>
                   <div>
-                    <select id="tipoDeCategoria">
+                    <select id="categoryType">
                       <option value="" disabled selected></option>
-                      <option value="">Food</option>
                       <option value="">Education</option>
-                      <option value="">Outings</option>
-                      <option value="">Services</option>
+                      <option value="">Food</option>
                       <option value="">Jobs</option>
+                      <option value="">Outings</option>
                       <option value="">Transport</option>
+                      <option value="">Savings</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div>
-                <label for="fecha-input">Date</label>
+                <label for="input-date">Date</label>
                 <div>
                   <div>
-                    <input type="date" id="fecha-input" />
+                    <input type="date" id="input-date" />
                   </div>
                 </div>
               </div>

@@ -3,94 +3,94 @@
 //  * ----------------------------------------------------------------------------
 //  */
 
-const OPERACIONES = {
-    GASTO: 'GASTO',
-    GANANCIA: 'GANANCIA',
+const OPERATIONS = {
+    EXPENSE: 'EXPENSE',
+    GAINING: 'GAINING',
   }
   
-  const crearOperacion = ({
-    descripcion,
-    monto,
-    categoria,
-    tipo,
-    fecha = new Date(),
+  const createOperation = ({
+    description,
+    amount,
+    category,
+    type,
+    date = new Date(),
   }) => {
-    const operacion = {
+    const operation = {
       id: uuidv4(),
-      descripcion,
-      monto,
-      categoria,
-      tipo,
-      fecha,
+      description,
+      amount,
+      category,
+      type,
+      date,
     }
-    return operacion
+    return operation
   }
   
-  const agregarOperacion = (operacion, operaciones) => {
-    return [...operaciones, operacion]
+  const addOperation = (operation, operations) => {
+    return [...operations, operation]
   }
   
-  const editarOperacion = (idOperacion, operacionNueva, operaciones) => {
-    return operaciones.map((operacion) =>
-      operacion.id === idOperacion
-        ? { id: operacion.id, ...operacionNueva }
-        : operacion
+  const editOperation = (idOperation, newOperation, operations) => {
+    return operations.map((operation) =>
+      operation.id === idOperation
+        ? { id: operation.id, ...newOperation }
+        : operation
     )
   }
   
-  const eliminarOperacion = (idOperacion, operaciones) => {
-    return operaciones.filter((operacion) => operacion.id !== idOperacion)
+  const deleteOperation = (idOperation, operations) => {
+    return operations.filter((operation) => operation.id !== idOperation)
   }
   
-  const obtenerOperacion = (idOperacion, operaciones) => {
-    return operaciones.find((operacion) => operacion.id === idOperacion)
+  const getOperation = (idOperation, operations) => {
+    return operaciones.find((operation) => operation.id === idOperation)
   }
   
-  const filtrarPorTipo = (tipo, operaciones) => {
-    return operaciones.filter((operacion) => operacion.tipo === tipo)
+  const filterForType = (type, operations) => {
+    return operations.filter((operation) => operation.type === type)
   }
   
-  const filtrarPorFechaMayorOIgualA = (fecha, operaciones) => {
-    return operaciones.filter((operacion) => {
-      const fechaOperacion = new Date(operacion.fecha)
-      return fechaOperacion.getTime() >= fecha.getTime()
+  const filterByDateGreaterOrEqualTo = (date, operations) => {
+    return operations.filter((operation) => {
+      const dateOperation = new Date(operation.date)
+      return dateOperation.getTime() >= date.getTime()
     })
   }
   
-  const filtrarPorCategoria = (idCategoria, operaciones) => {
-    return operaciones.filter((operacion) => operacion.categoria === idCategoria)
+  const filterByCategory = (idCategory, operations) => {
+    return operations.filter((operation) => operation.category === idCategory)
   }
   
-  const filtrarPorMes = (mes, anio, operaciones) => {
-    return operaciones.filter((operacion) => {
-      const fecha = new Date(operacion.fecha)
-      return fecha.getFullYear() === anio && fecha.getMonth() === mes
+  const filterByMonth = (month, year, operations) => {
+    return operations.filter((operation) => {
+      const date = new Date(operation.date)
+      return date.getFullYear() === year && date.getMonth() === month
     })
   }
   
-  const ordernarPorFecha = (operaciones, orden) => {
-    return [...operaciones].sort((a, b) => {
-      const fechaA = new Date(a.fecha)
-      const fechaB = new Date(b.fecha)
-      return orden === 'ASC'
-        ? fechaA.getTime() - fechaB.getTime()
-        : fechaB.getTime() - fechaA.getTime()
+  const orderByDate = (operations, order) => {
+    return [...operations].sort((a, b) => {
+      const dateA = new Date(a.date)
+      const dateB = new Date(b.date)
+      return order === 'ASC'
+        ? dateA.getTime() - dateB.getTime()
+        : dateB.getTime() - dateA.getTime()
     })
   }
   
-  const ordernarPorMonto = (operaciones, orden) => {
-    return [...operaciones].sort((a, b) => {
-      return orden === 'ASC' ? a.monto - b.monto : b.monto - a.monto
+  const orderByAmount = (operations, order) => {
+    return [...operations].sort((a, b) => {
+      return order === 'ASC' ? a.amount - b.amount : b.amount - a.amount
     })
   }
   
-  const ordernarPorDescripcion = (operaciones, orden) => {
-    return [...operaciones].sort((a, b) => {
-      const fechaA = new Date(a)
-      const fechaB = new Date(b)
-      return orden === 'ASC'
-        ? fechaA.getTime() < fechaB.getTime()
-        : fechaA.getTime() > fechaB.getTime()
+  const orderByDescription = (operations, order) => {
+    return [...operations].sort((a, b) => {
+      const dateA = new Date(a)
+      const dateB = new Date(b)
+      return order === 'ASC'
+        ? dateA.getTime() < dateB.getTime()
+        : dateA.getTime() > dateB.getTime()
     })
   }
   
@@ -100,28 +100,28 @@ const OPERACIONES = {
    * ----------------------------------------------------------------------------
    */
   
-  const crearCategoria = (nombre) => {
-    return { id: uuidv4(), nombre }
+  const createCategory = (name) => {
+    return { id: uuidv4(), name }
   }
   
-  const agregarCategoria = (categoria, categorias) => {
-    return [...categorias, categoria]
+  const addCategory = (category, categories) => {
+    return [...categories, category]
   }
   
-  const editarCategoria = (idCategoria, categoriaNueva, categorias) => {
-    return categorias.map((categoria) =>
-      categoria.id === idCategoria
-        ? { ...categoria, ...categoriaNueva }
-        : categoria
+  const editCategory = (idCategory, newCategory, categories) => {
+    return categories.map((category) =>
+      category.id === idCategory
+        ? { ...category, ...newCategory }
+        : category
     )
   }
   
-  const eliminarCategoria = (idCategoria, categorias) => {
-    return categorias.filter((categoria) => categoria.id !== idCategoria)
+  const deleteCategory = (idCategory, categories) => {
+    return categories.filter((category) => category.id !== idCategory)
   }
   
-  const obtenerCategoria = (idCategoria, categorias) => {
-    return categorias.find((categoria) => categoria.id === idCategoria)
+  const getCategory = (idCategory, categories) => {
+    return categories.find((category) => category.id === idCategory)
   }
   
   /**
@@ -130,160 +130,156 @@ const OPERACIONES = {
    * ----------------------------------------------------------------------------
    */
   
-  const obtenerBalance = (operaciones) => {
-    return operaciones.reduce(
-      (total, operacion) => {
-        if (operacion.tipo === OPERACIONES.GANANCIA) {
+  const getBalance = (operations) => {
+    return operations.reduce(
+      (total, operation) => {
+        if (operation.type === OPERATIONS.GAINING) {
           return {
             ...total,
-            ganancias: total.ganancias + operacion.monto,
-            balance: total.balance + operacion.monto,
+            gainings: total.gainings + operation.amount,
+            balance: total.balance + operation.amount,
           }
         }
   
-        if (operacion.tipo === OPERACIONES.GASTO) {
+        if (operation.type === OPERATIONS.EXPENSE) {
           return {
             ...total,
-            gastos: total.gastos + operacion.monto,
-            balance: total.balance - operacion.monto,
+            expenses: total.expenses + operation.amount,
+            balance: total.balance - operation.amount,
           }
         }
       },
       {
-        ganancias: 0,
-        gastos: 0,
+        gainings: 0,
+        expenses: 0,
         balance: 0,
       }
     )
   }
   
-  const obtenerTotalesPorCategoria = (operaciones) => {
-    return operaciones.reduce((totales, operacion) => {
-      const categoria = obtenerCategoria(operacion.categoria, obtenerCategorias())
-        .nombre
+  const getTotalsByCategory = (operations) => {
+    return operations.reduce((totals, operation) => {
+      const category = getCategory(operation.category, getCategory())
+        .name
   
-      if (!totales[categoria]) {
-        totales[categoria] = {
-          ganancia: 0,
-          gasto: 0,
+      if (!totals[category]) {
+        totals[category] = {
+          gainings: 0,
+          expenses: 0,
           balance: 0,
         }
       }
   
-      totales[categoria][operacion.tipo.toLowerCase()] += operacion.monto
+      totals[category][operation.type.toLowerCase()] += operation.amount
   
-      if (operacion.tipo === OPERACIONES.GANANCIA) {
-        totales[categoria].balance += operacion.monto
+      if (operation.type === OPERATIONS.GAINING) {
+        totals[category].balance += operation.amount
       } else {
-        totales[categoria].balance -= operacion.monto
+        totals[category].balance -= operation.amount
       }
   
-      return totales
+      return totals
     }, {})
   }
   
-  const obtenerTotalesPorMes = (operaciones) => {
-    return operaciones.reduce((totales, operacion) => {
-      const fecha = new Date(operacion.fecha)
-      const fechaFormateada = `${fecha.getMonth() + 1}/${fecha.getFullYear()}`
+  const getTotalsByMonth = (operations) => {
+    return operations.reduce((totals, operation) => {
+      const date = new Date(operation.date)
+      const dateFormated = `${date.getMonth() + 1}/${date.getFullYear()}`
   
-      if (!totales[fechaFormateada]) {
-        totales[fechaFormateada] = {
-          ganancia: 0,
-          gasto: 0,
+      if (!totals[dateFormated]) {
+        totals[dateFormated] = {
+          gainings: 0,
+          expenses: 0,
           balance: 0,
         }
       }
   
-      totales[fechaFormateada][operacion.tipo.toLowerCase()] += operacion.monto
+      totals[dateFormated][operation.type.toLowerCase()] += operation.amount
   
-      if (operacion.tipo === OPERACIONES.GANANCIA) {
-        totales[fechaFormateada].balance += operacion.monto
+      if (operation.type === OPERATIONS.GAINING) {
+        totals[dateFormated].balance += operation.amount
       } else {
-        totales[fechaFormateada].balance -= operacion.monto
+        totals[dateFormated].balance -= operation.amount
       }
   
-      return totales
+      return totals
     }, {})
   }
   
-  const obtenerResumenMeses = (operaciones) => {
+  const getResumenByMonth = (operations) => {
     const resumen = {
-      mayorGanancia: {
-        fecha: '',
-        monto: 0,
+      higherGainings: {
+        date: '',
+        amount: 0,
       },
-      mayorGasto: {
-        fecha: '',
-        monto: 0,
+      mayorExpenses: {
+        date: '',
+        amount: 0,
       },
     }
   
-    return operaciones.reduce((resumen, operacion) => {
-      const { tipo, fecha, monto } = operacion
+    return operations.reduce((resumen, operation) => {
+      const { type, date, amount } = operation
   
-      if (tipo === OPERACIONES.GANANCIA && monto > resumen.mayorGanancia.monto) {
-        resumen.mayorGanancia = { fecha, monto }
+      if (type === OPERATIONS.GAINING && amount > resumen.higherGainings.amount) {
+        resumen.higherGainings = { date, amount }
       }
   
-      if (tipo === OPERACIONES.GASTO && monto > resumen.mayorGasto.monto) {
-        resumen.mayorGasto = { fecha, monto }
+      if (type === OPERATIONS.EXPENSE && amount > resumen.mayorExpenses.amount) {
+        resumen.mayorExpenses = { date, amount }
       }
   
       return resumen
-    }, resumen)
+    }, resumnn)
   }
   
-  const obtenerResumenCategorias = (operaciones, categorias) => {
+  const getResumenCategories = (operations, categories) => {
     const resumen = {
-      mayorGanancia: {
-        categoria: '',
-        monto: 0,
+      higherGainings: {
+        category: '',
+        amount: 0,
       },
-      mayorGasto: {
-        categoria: '',
-        monto: 0,
+      mayorExpenses: {
+        category: '',
+        amount: 0,
       },
       mayorBalance: {
-        categoria: '',
-        monto: -Infinity,
+        category: '',
+        amount: -Infinity,
       },
     }
   
-    return categorias.reduce((resumen, categoria) => {
-      const operacionesDeCategoria = filtrarPorCategoria(
-        categoria.id,
-        operaciones
+    return categories.reduce((resumen, category) => {
+      const operationsOfCategory = filterByCategory(
+        category.id,
+        operations
       )
-      const { ganancias, gastos, balance } = obtenerBalance(
-        operacionesDeCategoria
+      const { gainings, expenses, balance } = getBalance(
+        operationsOfCategory
       )
   
-      if (ganancias > resumen.mayorGanancia.monto) {
-        resumen.mayorGanancia = { categoria: categoria.id, monto: ganancias }
+      if (gainings > resumen.higherGainings.amount) {
+        resumen.higherGainings = { category: category.id, amount: gainings }
       }
   
-      if (gastos > resumen.mayorGasto.monto) {
-        resumen.mayorGasto = { categoria: categoria.id, monto: gastos }
+      if (expenses > resumen.mayorExpenses.amount) {
+        resumen.mayorExpenses = { category: category.id, amount: expenses }
       }
   
-      if (balance > resumen.mayorBalance.monto) {
-        resumen.mayorBalance = { categoria: categoria.id, monto: balance }
+      if (balance > resumen.mayorBalance.amouut) {
+        resumen.mayorBalance = { category: category.id, amount: balance }
       }
   
       return resumen
     }, resumen)
   }
   
-  const obtenerResumen = (operaciones, categorias) => {
-    const resumenCategorias = obtenerResumenCategorias(operaciones, categorias)
-    const porMeses = obtenerResumenMeses(operaciones)
+  const getResumen = (operations, categories) => {
+    const resumenCategories = getResumenCategories(operations, categories)
+    const forMonths = getResumenByMonth(operations)
     return {
-      categorias: resumenCategorias,
-      meses: { ...porMeses },
+      categories: resumenCategories,
+      months: { ...forMonths },
     }
   }
-  
-  // Por categoría - Por fecha
-  // Por período
-  // Por cuenta
