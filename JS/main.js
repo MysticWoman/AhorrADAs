@@ -1,18 +1,18 @@
-const operaciones = []  
+const operations = []  
 
-const arrayGanancias = operaciones.filter(operacion => operacion.type === "Ganancia") 
-const totalGanancias = arrayGanancias.reduce((accumulator, currentValue) => accumulator + currentValue.num, 0); 
+const arrayGainings = operations.filter(operation => operation.type === "Gainings") 
+const totalGainings = arrayGainings.reduce((accumulator, currentValue) => accumulator + currentValue.num, 0); 
 
-const arrayGastos = operaciones.filter(operacion => operacion.type === "Gastos") 
-const totalGastos = arrayGastos.reduce((acc, cv) => acc + cv.num, 0);
+const arrayExpensas = operations.filter(operation => operation.type === "Expenses") 
+const totalExpenses = arrayExpensas.reduce((acc, cv) => acc + cv.num, 0);
 
-let categorias = []  
+let categories = []  
 
-categorias.forEach((categoria) => document.querySelector("#filtro-category").innerHTML += `<option value="">${categoria}</option>`)
+categories.forEach((category) => document.querySelector("#filter-category").innerHTML += `<option value="">${categoria}</option>`)
 
-document.querySelector("#gainings").innerHTML += `<span>${totalGanancias}</span>` 
-document.querySelector("#expenses").innerHTML += `<span>${totalGastos}</span>` 
-document.querySelector("#total").innerHTML += `<span>${totalGanancias - totalGastos}</span>`
+document.querySelector("#gainings").innerHTML += `<span>${totalGainings}</span>` 
+document.querySelector("#expenses").innerHTML += `<span>${totalExpenses}</span>` 
+document.querySelector("#total").innerHTML += `<span>${totalGainings - totalExpenses}</span>`
 
 // boton abrir nueva operacion //
 const $sectionHome = document.querySelector("#balanceHome")
@@ -50,10 +50,10 @@ $btnViewCategories.addEventListener("click", () => {
 });
 
 // boton reportes
-const $sectionReportes = document.querySelector("#section-reportes")
-const $btnReportes = document.querySelector("#viewReportes")
-$btnReportes.addEventListener("click", () => {
-  $sectionReportes.classList.remove("is-hidden")
+const $sectionReports = document.querySelector("#section-reports")
+const $btnReports = document.querySelector("#viewReports")
+$btnReports.addEventListener("click", () => {
+  $sectionReports.classList.remove("is-hidden")
   $sectionHome.classList.add("is-hidden")
 });
 
@@ -68,9 +68,9 @@ $btnEditCategories.addEventListener("click", () => {
         $sectionNewCategories.classList.add("is-hidden")
 });
 
-const reiniciarVistaOperacion = () => {
-  $('#descripcion-input').value = ''
-  $('#monto').value = 0
-  $('#tipo-operacion').value = 'GASTO'
-  $('#fecha-input').valueAsDate = new Date()
+const resetVewOperation = () => {
+  $('#description-input').value = ''
+  $('#amount').value = 0
+  $('#type-operation').value = 'expense'
+  $('#date-input').valueAsDate = new Date()
 } 
